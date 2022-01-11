@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=This , initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'deteksi_buah/css/flat-ui-kit.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is the homepage please upload your file</h1>
+    <form action="prediksiGambar" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div><label for="gambar">Upload your image</label></div>
+        <input type="file" name="gambar" id="">
+        <div><input type="submit" value="upload"></div>
+        <div>
+            {{ direktori_gambar }}
+            <img src="{{ direktori_gambar }}" alt="">
+        </div>
+    </form>
+</body>
+</html>
