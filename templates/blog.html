@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block head %}
+        <title>Blog</title>
+    {% endblock %}
+    
+    {% block header %}
+    <header class="miri-ui-kit-header landing-header header-bg-2">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-on-scroll">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    DRS Fruit
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#miriUiKitNavbar" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="miriUiKitNavbar">
+                    <div class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Beranda</a>
+                        </li>
+            
+                        <li class="nav-item">
+                            <a class="nav-link" href="artikel" target="_blank">Artikel</a>
+                        </li>
+            
+                        <form action="upGambar" class="form-inline ml-lg-3">
+                            {% csrf_token %}
+                            <button class="btn btn-danger">Prediksi Sekarang</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="miri-ui-kit-header-content text-center text-white d-flex flex-column justify-content-center align-items-center">
+            <h1 class="display-3 text-white">Blog</h1>
+            <p class="h3 font-weight-light text-white">Ketahui lebih lanjut mengenai kesegaran buah anda</p>
+            <p class="mt-4"><a href="#blog-content" class="btn btn-success btn-pill">Baca lebih lanjut</a></p>
+        </div>
+    </header>
+    {% endblock %}
+
+    {% block content %}
+    <div id="blog-content">
+        <section class="miri-ui-kit-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h6 class="text-warning mb-3">Apel</h6>
+                            <h2 class="h1 font-weight-semibold mb-4">Mengetahui Kesegaran Apel selain dengan tampilan visual
+                            </h2>
+                            <p class="mb-5">
+                                Menurut University of California, cara terbaik untuk memilih jeruk segar selain dari tampilan visualnya kita bisa memeriksa berat dan tekstur dari jeruk. Jeruk yang segar akan memiliki berat yang wajar dan sesuai dengan ukurannya. Untuk teksturnya, jeruk yang segar pada bagian kulitnya tidak terdapat bagian yang lebih lunak dibandingkan dengan bagian lainnya dan juga tidak ada goresan pada kulit jeruk. Sama halnya dengan banyak buah lainnya, tekstur kekerasan dari jeruk segar tidaklah terlalu lunak ataupun terlalu keras
+                            </p>
+                            <!-- <p><button class="btn btn-primary">Learn more</button></p> -->
+                    </div>
+                    <div class="col-md-6 text-right"><img src="{% static 'deteksi_buah/assets/images/apel_kotak.jpg' %}" alt="About" class="img-fluid img-rounded img-raised"></div>
+                </div>
+            </div>
+        </section>
+        <section class="miri-ui-kit-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h6 class="text-warning mb-3">Jeruk</h6>
+                            <h2 class="h1 font-weight-semibold mb-4">Mengetahui Kesegaran Jeruk selain dengan tampilan visual
+                            </h2>
+                            <p class="mb-5">
+                                Ada banyak cara untuk mengerahui kesegaran apel. Aplikasi ini bisa membantu memeriksa kesegaran apel secara visual. Namun, ada 2 faktor lainnya untuk mengetahui kesegaran apel terutama dari tekstur dan baunya. Apel yang masih segar akan bertekstur solid, tidak terlalu keras ataupun terlalu lunak dan bisa anda periksa dengan menekan salah satu bagian pada apel. Yang kedua adalah secara aroma apel yang bisa cukup kuat untuk kita endus. Terakhir yang perlu kita ketahui, ada berbagai jenis apel yang ketika segar warnanya tidak merah seperti kebanyakan apel. Oleh karena itu, kita bisa tanya penjual mengenai jenis buah apel sembari mengecek elemen lainnya yang sudah dijelaskan disini
+                            </p>
+                            <!-- <p><button class="btn btn-primary">Learn more</button></p> -->
+                    </div>
+                    <div class="col-md-6 text-right"><img src="{% static 'deteksi_buah/assets/images/jeruk_kotak.jpg' %}" alt="About" class="img-fluid img-rounded img-raised"></div>
+                </div>
+            </div>
+        </section>
+        <section class="miri-ui-kit-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <h6 class="text-warning mb-3">Pisang</h6>
+                            <h2 class="h1 font-weight-semibold mb-4">Mengetahui Kesegaran Pisang
+                            </h2>
+                            <p class="mb-5">
+                                Untuk melihar kesegara buah pisang cara paling mudah yang mungkin bisa dilakukan adalah dengan melihat bercak-bercak coklat pada kulit pisang. Pisang dengan banyak sekali bercak coklat kemungkinan besar sudah menuju pembusukan. Namun, yang perlu diperhatikan bercak coklat ini juga penanda apakah pisang sudah cukup matang atau belum. Walaupun pisang sudah berwarna kuning, ketika belum ada bercak coklat terlihat, kemungkinan besar pisang tersebut perlu waktu sedikit lagi untuk bisa matang dan enak ketika dikonsumsi. Oleh karena itu, kita bisa menilai kesegaran pisang juga dengan menekannya dan merasakan teksturnya. Pisang yang sudah menuju pembusukan akan terasa sangat lunak, sebaliknya jika belum siap dikonsumsi akan terasa keras.  Terkahir pisang yang belum siap untuk dikonsumi biasanya akan sulit sekali mengupas kulitnya. Perhatikan tanda-tanda ini agar kita mengonsumsi pisang segar pada kematangan yang tepat.
+                            </p>
+                            <!-- <p><button class="btn btn-primary">Learn more</button></p> -->
+                    </div>
+                    <div class="col-md-6 text-right"><img src="{% static 'deteksi_buah/assets/images/pisang_kotak.jpg' %}" alt="About" class="img-fluid img-rounded img-raised"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% endblock %}
+
+    {% block script %}
+        <script src="{% static 'deteksi_buah/src/vendors/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'deteksi_buah/src/vendors/popper.js/dist/umd/popper.min.js' %}"></script>
+        <script src="{% static 'deteksi_buah/src/vendors/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'deteksi_buah/src/js/miri-ui-kit.js' %}"></script>
+    {% endblock %}
