@@ -10,16 +10,12 @@ import cv2
 import keras
 
 img_height, img_width = 224, 224
-model = load_model('./model_DL/melanoma-classification_1.h5') # rotten-fresh-fruit-classification, fruit_model_VGG16
+model = load_model('./model_DL/melanoma-classification_1_sigmoid.h5') # rotten-fresh-fruit-classification, fruit_model_VGG16
 
-def unduhGambar(request):
-    return HttpResponse('Ini harusnya ngedownload')
 
 def upGambar(request):
     return render(request, 'index.html')
 
-# def artikel(request):
-#     return render(request, 'blog.html')
 
 def hair_remove_3(image):
     # convert image to grayScale
@@ -94,14 +90,12 @@ def deteksiBuah(request):
         img_stack = np.vstack([img_arr_expand])
         classes = model.predict(img_stack)
         print(classes)
-        hasil = np.argmax(classes)
-        print(hasil)
         
-        if hasil==0:
-            prediction = 'Melanoma'
-        elif hasil==1:
+        if classes>0.5:
             prediction = 'Non-Melanoma'
+        else:
+            prediction = 'Melanoma'
     else:
         prediction = "Masukkan Gambar terlebih dahulu"    
-    context = {'direktori_gambar': filename+'_512.JPG', 'hasil':prediction, 'img_seg': filename+'_segment.JPG', 'hair_free':filename+'_HairFree.JPG', 'nama_file':nama}
+    context = {'direktori_gambar': filename+'_512.JPG', 'hasil':prediction, 'hair_free':filename+'_HairFree.JPG', 'nama_file':nama}
     return render(request, 'hasilPrediksi.html', context)
